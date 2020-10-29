@@ -1,7 +1,7 @@
 #/bin/bash
 if ! [ $(id -u) = 0 ]; then
     echo "Run as root..."
-	exit 1;
+    exit 1;
 fi
 
 echo "fs.inotify.max_user_watches = 524288" > /etc/sysctl.d/idea.conf
@@ -23,5 +23,8 @@ snap install postman
 getent group docker || groupadd docker
 usermod -aG docker $(whoami)
 systemctl enable docker
+
+echo "Consider restarting your system"
+
 
 exit 0
