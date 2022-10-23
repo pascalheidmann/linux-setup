@@ -11,7 +11,7 @@ sudo sysctl -p --system
 
 apt update -y
 apt upgrade -y
-apt-get -y install vim git docker docker-compose snapd thunderbird gparted libreoffice keepassxc php php-dom
+apt-get -y install vim git curl docker docker-compose snapd thunderbird gparted libreoffice keepassxc php php-dom
 
 if [ $(echo $XDG_CURRENT_DESKTOP | grep -i "gnome" | wc -l) -gt 0 ]; then
     apt-get install gnome-shell-extensions gnome-shell-extension-multi-monitors gnome-tweaks;
