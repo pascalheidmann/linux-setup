@@ -7,16 +7,17 @@ fi
 JETBRAINS_TOOLBOX_VERSION="1.25.12999"
 
 echo "fs.inotify.max_user_watches = 524288" > /etc/sysctl.d/idea.conf
-sudo sysctl -p --system
+sysctl -p --system
+
+apt-get -y install vim git ca-certificates curl snapd thunderbird gparted libreoffice keepassxc php php-dom 
 
 # needed for docker
-sudo apt-get update -y
-sudo apt-get install ca-certificates curl
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
+apt-get update -y
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+chmod a+r /etc/apt/keyrings/docker.asc
 
-apt-get -y install vim git curl docker docker-compose snapd thunderbird gparted libreoffice keepassxc php php-dom
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 if [ $(echo $XDG_CURRENT_DESKTOP | grep -i "gnome" | wc -l) -gt 0 ]; then
     apt-get install gnome-shell-extensions gnome-shell-extension-multi-monitors gnome-tweaks;
